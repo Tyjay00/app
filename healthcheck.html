@@ -8,5 +8,9 @@
 <body>
   <h1>Healthcheck OK</h1>
   <p>This page verifies GitHub Pages is serving content.</p>
+  <p id="ts">Updated: </p>
+  <script>
+    document.getElementById('ts').textContent = 'Updated: ' + new Date().toISOString();
+  </script>
 </body>
 </html>
