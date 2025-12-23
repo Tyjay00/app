@@ -18,9 +18,11 @@ jobs:
       - uses: actions/setup-node@v4
         with:
           node-version: 20
-        - run: |
-          rm -f package-lock.json
-          npm ci --no-optional
+        - name: Clean and install dependencies
+          run: |
+            rm -rf node_modules package-lock.json || true
+            npm cache clean --force || true
+            npm install --no-optional
       - run: npm run build
       - name: Setup Pages
         uses: actions/configure-pages@v4
